@@ -26,11 +26,11 @@
     </licenses>
     <distributionManagement>
         <repository>
-            <id>ossrh</id>
-            <name>Central Repository OSSRH</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+          <id>ossrh</id>
+          <name>Central Repository OSSRH</name>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
-    </distributionManagement>
+      </distributionManagement>
     <scm>
         <connection>scm:git:git://github.com/fontysvenlo/informaticspom.git</connection>
         <developerConnection>scm:git:ssh://github.com:fontysvenlo/informaticspom.git</developerConnection>
@@ -441,6 +441,6 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile><!-- jacoco -->
+        </profile> <!-- jacoco -->
     </profiles>
 </project>
