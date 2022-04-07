@@ -8,6 +8,11 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
+      - name: Configure GPG Key
+        run: |
+          echo -n "$OSSRH_GPG_SECRET_KEY" | gpg --import --batch
+        env:
+          OSSRH_GPG_SECRET_KEY: ${{ secrets.OSSRH_GPG_SECRET_KEY }}
       - uses: actions/checkout@v3
       - name: Set up Maven Central Repository
         uses: actions/setup-java@v3
