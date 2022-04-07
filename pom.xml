@@ -4,7 +4,7 @@
     <description>Fontys Venlo Informatics POM</description>
     <groupId>io.github.fontysvenlo</groupId>
     <artifactId>informaticspom</artifactId>
-    <version>0.3</version>
+    <version>0.4</version>
     <packaging>pom</packaging>
     <name>FontysVenlo :: InformaticsPom</name>
     <url>https://fontysvenlo.github.io/informaticspom/</url>
@@ -284,7 +284,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
