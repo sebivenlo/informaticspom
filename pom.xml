@@ -57,6 +57,7 @@
         <maven.surefire.version>3.0.0-M6</maven.surefire.version>
         <maven.compiler.release>${java.release}</maven.compiler.release>
         <pmdVersion>6.42.0</pmdVersion>
+        <exec.mainClass></exec.mainClass>
     </properties>
 
 
