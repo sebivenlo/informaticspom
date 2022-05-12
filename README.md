@@ -21,12 +21,11 @@ These include:
 The pom can be used by defining it as the parent pom
 
 ```
-<dependency>
-  <groupId>io.github.fontysvenlo</groupId>
-  <artifactId>informaticspom</artifactId>
-  <version>0.8</version>
-  <type>pom</type>
-</dependency>
+<parent>
+    <groupId>io.github.fontysvenlo</groupId>  
+    <artifactId>informaticspom</artifactId>
+    <version>0.8</version>
+</parent>
 ```
 
 ## Properties
