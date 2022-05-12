@@ -2,8 +2,10 @@ name: Publish package to the Maven Central Repository
 on:
   push:
     branches: [main]
+    paths: 'pom.xml'
   pull_request:
     branches: [main]
+    paths: 'pom.xml'
 jobs:
   publish:
     runs-on: ubuntu-latest
