@@ -58,4 +58,4 @@ release new version of the `informaticspom`
 
 ## Publishing
 
-Releasing is as easy as pushing new changes to this repository, when the build passes all the checks it will automatically release a new version on Maven Central.
+Releasing is as easy as pushing/merging new changes to this repository, when the build passes all the checks it will automatically release a new version on Maven Central.
