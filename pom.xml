@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <description>Fontys Venlo Informatics POM</description>
     <groupId>io.github.fontysvenlo</groupId>
     <artifactId>informaticspom</artifactId>
-    <version>0.9</version>
+    <version>1.0</version>
     <packaging>pom</packaging>
     <name>FontysVenlo :: InformaticsPom</name>
     <url>https://fontysvenlo.github.io/informaticspom/</url>
@@ -168,9 +170,31 @@
                     <artifactId>maven-jxr-plugin</artifactId>
                     <version>3.1.1</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.9.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>3.3.0</version>
+                  </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -242,9 +266,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <argLine>
-                    @{argLine}
-                    ${surefire.opens}
-                </argLine>
+                        @{argLine}
+                        ${surefire.opens}
+                    </argLine>
                     <trimStackTrace>true</trimStackTrace>
                 </configuration>
             </plugin>
@@ -393,9 +417,7 @@
         <profile>
             <id>jacoco</id>
             <properties>
-                <argLine>
-                    ${jacocoArgLine}
-                    <!---javaagent:${settings.localRepository}/org/jacoco/org.jacoco.agent/${jacoco.version}/org.jacoco.agent-${jacoco.version}-runtime.jar=destfile=${project.build.directory}/jacoco.exec-->
+                <argLine> ${jacocoArgLine} <!---javaagent:${settings.localRepository}/org/jacoco/org.jacoco.agent/${jacoco.version}/org.jacoco.agent-${jacoco.version}-runtime.jar=destfile=${project.build.directory}/jacoco.exec-->
                 </argLine>
             </properties>
             <dependencies>
@@ -446,7 +468,8 @@
                                             <element>BUNDLE</element>
                                             <limits>
                                                 <!--  implementation is needed only for Maven 2  -->
-                                                <limit implementation="org.jacoco.report.check.Limit">
+                                                <limit
+                                                    implementation="org.jacoco.report.check.Limit">
                                                     <counter>COMPLEXITY</counter>
                                                     <value>COVEREDRATIO</value>
                                                     <minimum>0.60</minimum>
@@ -460,7 +483,8 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile> <!-- jacoco -->
+        </profile> <!--
+        jacoco -->
         <profile>
             <id>release</id>
             <build>
