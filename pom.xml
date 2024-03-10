@@ -6,7 +6,7 @@
     <description>Sebi Venlo Informatics POM clone of FontysVenlo informaticspom</description>
     <groupId>io.github.sebivenlo</groupId>
     <artifactId>informaticspom</artifactId>
-    <version>1.4</version>
+    <version>1.4.1</version>
     <packaging>pom</packaging>
     <name>Sebi Venlo :: InformaticsPom</name>
     <url>https://sebivenlo.github.io/informaticspom/</url>
@@ -320,6 +320,20 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <!-- strips code and validates the final result -->
+                <groupId>io.github.sebivenlo</groupId>
+                <artifactId>codestripper-maven-plugin</artifactId>
+                <version>0.1</version>
+                <executions>
+                    <execution>
+                        <id>strip</id>
+                        <goals>
+                            <goal>strip</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <dependencyManagement>
@@ -497,41 +511,6 @@
                 </plugins>
             </build>
         </profile> <!--jacoco -->
-        <profile>
-            <id>codestripper</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <!-- strips code and validates the final result -->
-                        <dependencies>
-                            <dependency>
-                                <groupId>io.github.sebivenlo</groupId>
-                                <artifactId>codestripper-maven-plugin</artifactId>
-                                <version>0.1</version>
-                           </dependency>
-                        </dependencies>
-                        <groupId>io.github.sebivenlo</groupId>
-                        <artifactId>codestripper-maven-plugin</artifactId>
-                        <version>0.1</version>
-                        <executions>
-                            <execution>
-                                <id>strip</id>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>strip</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>verify</id>
-                                <goals>
-                                    <goal>validate-stripped-code</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
         <profile>
             <id>release</id>
             <build>
